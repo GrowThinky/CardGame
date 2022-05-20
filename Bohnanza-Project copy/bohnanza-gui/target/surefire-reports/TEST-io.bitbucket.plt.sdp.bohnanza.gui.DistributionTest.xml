@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.555" tests="38" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/christoph/git/Bohnanza-Project/bohnanza-gui/target/test-classes:/Users/christoph/git/Bohnanza-Project/bohnanza-gui/target/classes:/Users/christoph/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/Users/christoph/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/Users/christoph/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/christoph/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/Users/christoph/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/Users/christoph/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/christoph/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar:/Users/christoph/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/Users/christoph/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/christoph/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/christoph/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar:/Users/christoph/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.swt/3.118.0/org.eclipse.swt-3.118.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.jface/3.24.0/org.eclipse.jface-3.24.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.core.commands/3.10.100/org.eclipse.core.commands-3.10.100.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.equinox.common/3.15.100/org.eclipse.equinox.common-3.15.100.jar:/Users/christoph/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.swt.cocoa.macosx.x86_64/3.118.0/org.eclipse.swt.cocoa.macosx.x86_64-3.118.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.swt.gtk.linux.x86_64/3.118.0/org.eclipse.swt.gtk.linux.x86_64-3.118.0.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/christoph/git/Bohnanza-Project/bohnanza-gui/target/surefire/surefirebooter17089193331282189501.jar /Users/christoph/git/Bohnanza-Project/bohnanza-gui/target/surefire 2022-02-21T15-34-41_713-jvmRun1 surefire13194770176662335797tmp surefire_04734627899891972853tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/christoph/git/Bohnanza-Project/bohnanza-gui/target/test-classes:/Users/christoph/git/Bohnanza-Project/bohnanza-gui/target/classes:/Users/christoph/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/Users/christoph/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/Users/christoph/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/christoph/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/Users/christoph/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/Users/christoph/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/christoph/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar:/Users/christoph/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/Users/christoph/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/christoph/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/christoph/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar:/Users/christoph/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.swt/3.118.0/org.eclipse.swt-3.118.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.jface/3.24.0/org.eclipse.jface-3.24.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.core.commands/3.10.100/org.eclipse.core.commands-3.10.100.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.equinox.common/3.15.100/org.eclipse.equinox.common-3.15.100.jar:/Users/christoph/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.swt.cocoa.macosx.x86_64/3.118.0/org.eclipse.swt.cocoa.macosx.x86_64-3.118.0.jar:/Users/christoph/.m2/repository/org/eclipse/platform/org.eclipse.swt.gtk.linux.x86_64/3.118.0/org.eclipse.swt.gtk.linux.x86_64-3.118.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/christoph"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2018-09-25"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/christoph/git/Bohnanza-Project/bohnanza-gui"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/christoph/git/Bohnanza-Project/bohnanza-gui/target/surefire/surefirebooter17089193331282189501.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="11+28"/>
+    <property name="user.name" value="christoph"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="10.14.6"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="/Users/christoph/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/78/h_z3jwm93c505bq1qw_46w6r0000gn/T/"/>
+    <property name="idea.version" value="2021.1"/>
+    <property name="java.version" value="11"/>
+    <property name="user.dir" value="/Users/christoph/git/Bohnanza-Project/bohnanza-gui"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/christoph/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11+28"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="1 Distribute with overlap has equi-distant starting position. (Ints: [60, 60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="2 Distribute with overlap has equi-distant starting position. (Ints: [80, 60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="3 Distribute with overlap has equi-distant starting position. (Ints: [60, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="4 Distribute with overlap has equi-distant starting position. (Ints: [60, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.002"/>
+  <testcase name="5 Distribute with overlap has equi-distant starting position. (Ints: [80, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.002"/>
+  <testcase name="6 Distribute with overlap has equi-distant starting position. (Ints: [60, 80, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.001"/>
+  <testcase name="7 Distribute with overlap has equi-distant starting position. (Ints: [80, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="8 Distribute with overlap has equi-distant starting position. (Ints: [60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.006"/>
+  <testcase name="9 Distribute with overlap has equi-distant starting position. (Ints: [80, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.002"/>
+  <testcase name="10 Distribute with overlap has equi-distant starting position. (Ints: [80, 60, 80, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.005"/>
+  <testcase name="Distribute for empty array." classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.003"/>
+  <testcase name="Distribute for null array." classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.002"/>
+  <testcase name="Distribute uses smaller value as start." classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.002"/>
+  <testcase name="1 Distribute without overlap has equi-distant spacing. (Ints: [60, 60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.003"/>
+  <testcase name="2 Distribute without overlap has equi-distant spacing. (Ints: [80, 60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.016"/>
+  <testcase name="3 Distribute without overlap has equi-distant spacing. (Ints: [60, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.015"/>
+  <testcase name="4 Distribute without overlap has equi-distant spacing. (Ints: [60, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.003"/>
+  <testcase name="5 Distribute without overlap has equi-distant spacing. (Ints: [80, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.028"/>
+  <testcase name="6 Distribute without overlap has equi-distant spacing. (Ints: [60, 80, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.003"/>
+  <testcase name="7 Distribute without overlap has equi-distant spacing. (Ints: [80, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.018"/>
+  <testcase name="8 Distribute without overlap has equi-distant spacing. (Ints: [60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.006"/>
+  <testcase name="9 Distribute without overlap has equi-distant spacing. (Ints: [80, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.008"/>
+  <testcase name="10 Distribute without overlap has equi-distant spacing. (Ints: [80, 60, 80, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.009"/>
+  <testcase name="Distribute properly guards conditions for arguments." classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.007"/>
+  <testcase name="1 Distribute with too little room has all cards starting at Beginning. (Ints: [60, 60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="2 Distribute with too little room has all cards starting at Beginning. (Ints: [80, 60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.002"/>
+  <testcase name="3 Distribute with too little room has all cards starting at Beginning. (Ints: [60, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.001"/>
+  <testcase name="4 Distribute with too little room has all cards starting at Beginning. (Ints: [60, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.023"/>
+  <testcase name="5 Distribute with too little room has all cards starting at Beginning. (Ints: [80, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.008"/>
+  <testcase name="6 Distribute with too little room has all cards starting at Beginning. (Ints: [60, 80, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.006"/>
+  <testcase name="7 Distribute with too little room has all cards starting at Beginning. (Ints: [80, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.002"/>
+  <testcase name="8 Distribute with too little room has all cards starting at Beginning. (Ints: [60, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="9 Distribute with too little room has all cards starting at Beginning. (Ints: [80, 60, 80])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.001"/>
+  <testcase name="10 Distribute with too little room has all cards starting at Beginning. (Ints: [80, 60, 80, 80, 60])" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="1 Distribute single card of dimension 0" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="2 Distribute single card of dimension 60" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.003"/>
+  <testcase name="3 Distribute single card of dimension 90" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+  <testcase name="4 Distribute single card of dimension 100" classname="io.bitbucket.plt.sdp.bohnanza.gui.DistributionTest" time="0.004"/>
+</testsuite>
