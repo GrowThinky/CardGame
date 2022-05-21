@@ -28,10 +28,13 @@ public class Game implements Runnable {
 	private final GUI gui;
     @SuppressWarnings("unused")
     private final String[] args;
-    private GameContext gameContext; //how to make final?
+    private GameContext gameContext;
     private Button selectBaseGame;
     private Button selectExtensionSinglePlayer;
     private Button selectExtensionDuo;
+    Compartment welcomeImage;
+    private Label welcome;
+    private String welcomeMessage = "Hi! Please select the Base Game to see a basic demonstration.";
 
     public Game(GUI gui, String[] args) {
         super();
@@ -43,8 +46,11 @@ public class Game implements Runnable {
     @Override
     public void run() {
 
-         selectBaseGame = gui.addButton("Base Game", new Coordinate(10, 530), new Size(150, 25), button -> {
+         welcome = gui.addLabel(new Coordinate(400, 560), welcomeMessage );
+         welcomeImage = gui.addCompartment(new Coordinate(380,100),new Size(500,400),"","bohnanza_lessdorky");
+         selectBaseGame = gui.addButton("Base Game", new Coordinate(8, 530), new Size(150, 25), button -> {
            //create specific gameContext
+
              this.gameContext = new GameContextBase(3);
 
              for (Player player : gameContext.playerList) {
@@ -52,12 +58,10 @@ public class Game implements Runnable {
              }
              runBaseGame();
 
-            gui.removeButton(selectBaseGame);
-            gui.removeButton(selectExtensionSinglePlayer);
-            gui.removeButton(selectExtensionDuo);
+             removeMenuItems();
         });
 
-         selectExtensionSinglePlayer = gui.addButton("Al Cabohne - Singleplayer", new Coordinate(10, 560), new Size(150, 25), button -> {
+         selectExtensionSinglePlayer = gui.addButton("Al Cabohne - Single", new Coordinate(10, 560), new Size(150, 25), button -> {
             //create specific gameContext
              this.gameContext = new GameContextAlCab(1);
 
@@ -66,9 +70,7 @@ public class Game implements Runnable {
              }
             runExtensionSinglePlayer();
 
-             gui.removeButton(selectBaseGame);
-             gui.removeButton(selectExtensionSinglePlayer);
-             gui.removeButton(selectExtensionDuo);
+             removeMenuItems();
         });
 
         selectExtensionDuo = gui.addButton("Al Cabohne - Duo", new Coordinate(165, 560), new Size(150, 25), button -> {
@@ -81,9 +83,7 @@ public class Game implements Runnable {
             }
             runExtensionDuo();
 
-            gui.removeButton(selectBaseGame);
-            gui.removeButton(selectExtensionSinglePlayer);
-            gui.removeButton(selectExtensionDuo);
+            removeMenuItems();
         });
 
 
@@ -356,6 +356,14 @@ public class Game implements Runnable {
         finalFeldCompartment.distributeVertical(gui.getCardObjectsInCompartment(finalFeldCompartment));
         if(!card.isFrontShown()){
             card.flip();}
+    }
+
+    private void removeMenuItems(){
+        gui.removeButton(selectBaseGame);
+        gui.removeButton(selectExtensionSinglePlayer);
+        gui.removeButton(selectExtensionDuo);
+        gui.removeLabel(welcome);
+        gui.removeCompartment(welcomeImage);
     }
 
 }

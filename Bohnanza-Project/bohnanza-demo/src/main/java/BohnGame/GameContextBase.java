@@ -9,7 +9,7 @@ import java.util.Map;
 public class GameContextBase extends GameContext {
 
     public Handel handel;
-    private BaseGameAblauf phasenAblauf;
+    private final BaseGameAblauf phasenAblauf;
     DeckBaseGame deckBaseGame;
 
     public GameContextBase(int anzahlSpieler) {

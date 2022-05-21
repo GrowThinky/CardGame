@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class GameContextAlCab extends GameContext {
 
     public Mafia mafia;
-    private AlCabAblauf phasenAblauf;
+    private final AlCabAblauf phasenAblauf;
     public ArrayList<ArrayList<Karte>> aufgedeckteKarten;
     public DeckAlCabohne deckAlCabohne;
 

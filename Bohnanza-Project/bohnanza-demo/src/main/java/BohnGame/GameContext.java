@@ -43,8 +43,6 @@ public abstract class GameContext {
         }
     }
 
-
-
     public abstract void nextPlayer();
     public abstract Phase getInitialPhase();
     public abstract Bohnenfeld makePlayerBohnenfeld();
