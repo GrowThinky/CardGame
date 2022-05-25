@@ -4,10 +4,12 @@ import AlCabohne.DeckAlCabohne;
 import AlCabohne.GameContextAlCab;
 import BohnGame.*;
 import io.bitbucket.plt.sdp.bohnanza.gui.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Provides the game-mode selection screen and dedicated game set-up Methods for each game-mode.
+ */
 public class Game implements Runnable {
 
     private final ArrayList<Compartment> handCompartments = new ArrayList<>();
@@ -34,7 +36,7 @@ public class Game implements Runnable {
     private Button selectExtensionDuo;
     Compartment welcomeImage;
     private Label welcome;
-    private String welcomeMessage = "Hi! Please select the Base Game to see a basic demonstration.";
+    private String welcomeMessage = "Please select the Base Game to see a basic demonstration.";
 
     public Game(GUI gui, String[] args) {
         super();
@@ -43,13 +45,14 @@ public class Game implements Runnable {
     }
 
 
+    /**
+     * Initializes the game-mode selection screen
+     */
     @Override
     public void run() {
-
          welcome = gui.addLabel(new Coordinate(400, 560), welcomeMessage );
          welcomeImage = gui.addCompartment(new Coordinate(380,100),new Size(500,400),"","bohnanza_lessdorky");
          selectBaseGame = gui.addButton("Base Game", new Coordinate(8, 530), new Size(150, 25), button -> {
-           //create specific gameContext
 
              this.gameContext = new GameContextBase(3);
 
@@ -59,6 +62,10 @@ public class Game implements Runnable {
              runBaseGame();
 
              removeMenuItems();
+        });
+
+        gui.addButton("exit", new Coordinate(950, 560), new Size(80, 25), button -> {
+            gui.stop();
         });
 
          selectExtensionSinglePlayer = gui.addButton("Al Cabohne - Single", new Coordinate(10, 560), new Size(150, 25), button -> {
@@ -86,18 +93,54 @@ public class Game implements Runnable {
             removeMenuItems();
         });
 
-
-
     }
 
+    /**
+     * Set-up method for vanilla Bohnanza without any extensions.
+     */
+    private void runBaseGame(){
+
+        for (Player player : gameContext.playerList) {
+            // add gui elements
+            setupPlayerGuiElements(player, x ,y);
+            // add player's initial set of cards to GUI
+            for (Karte karte : player.hand) {
+                CardObject newCard = gui.addCard(karte.typ, new Coordinate(x + hand_left_margin , y + card_X_offset)); //add cards to Compartments directly?
+                objectKarteHashMap.put(newCard,karte);
+                newCard.flip();
+                x += card_X_offset;
+            }
+            x += player_space_offset;
+        }
+
+
+        // a label that will be used to show information on a dragged'n'dropped card
+        final Label label = gui.addLabel(new Coordinate(10, 580), "<none>");
+
+
+        // set the handler for drag'n'drop events. With this handler:
+        // - whenever a d'n'd action finishes, the dropped card is flipped (toggle whether the front or back is shown)
+        // - information on the dropped card is shown in the dedicated label
+        // - the card is moved to the front, i.e., displayed top-most
+        gui.setCardDnDHandler((CardObject card, Coordinate mouseCoordinate, Coordinate newCoordinate) -> {
+            card.flip();
+            label.updateLabel(card.toString());
+            gui.moveToTop(card);
+            return newCoordinate;
+        });
+    }
+
+
+    /**
+     * Set-up method for two player game for AlCabohne extension.
+     */
     private void runExtensionDuo() {
+
+
         for (Player player : gameContext.playerList) {
 
-            // add gui elements
             setupPlayerGuiElementsDuo(player, x ,y);
-            setupMafiaGuiDuo(800, 50);
 
-            // add player's initial set of cards to GUI
             for (Karte karte : player.hand) {
                 CardObject newCard = gui.addCard(karte.typ, new Coordinate(x + hand_left_margin , y + card_X_offset));
                 objectKarteHashMap.put(newCard,karte);
@@ -107,10 +150,9 @@ public class Game implements Runnable {
             x += player_space_offset;
         }
 
-        // a button to explicitly terminate the demo. This closes the window.
-        gui.addButton("exit", new Coordinate(950, 10), new Size(80, 25), button -> {
-            gui.stop();
-        });
+        setupMafiaGuiDuo(800, 50);
+
+
 
 
         final Label label = gui.addLabel(new Coordinate(10, 880), "<none>");
@@ -124,6 +166,9 @@ public class Game implements Runnable {
 
     }
 
+    /**
+     * Set-up method for single player AlCabohne extension.
+     */
     private void runExtensionSinglePlayer(){
         for (Player player : gameContext.playerList) {
 
@@ -158,71 +203,7 @@ public class Game implements Runnable {
     }
 
 
-
-    private void runBaseGame(){
-
-        for (Player player : gameContext.playerList) {
-
-            // add gui elements
-            setupPlayerGuiElements(player, x ,y);
-
-            // add player's initial set of cards to GUI
-            for (Karte karte : player.hand) {
-                CardObject newCard = gui.addCard(karte.typ, new Coordinate(x + hand_left_margin , y + card_X_offset)); //add cards to Compartments directly?
-                objectKarteHashMap.put(newCard,karte);
-                newCard.flip();
-                x += card_X_offset;
-            }
-            x += player_space_offset;
-        }
-
-
-        Compartment vDistCompartment = setupDemoCompartment(0, "vert. distr.");
-        setupDemoCompartmentButton(1, button -> {
-            vDistCompartment.distributeVertical(gui.getCardObjectsInCompartment(vDistCompartment));
-        });
-
-
-        Compartment hDistCompartment = setupDemoCompartment(1, "hor. distr.");
-        setupDemoCompartmentButton(2, button -> {
-            hDistCompartment.distributeHorizontal(gui.getCardObjectsInCompartment(hDistCompartment));
-        });
-
-
-        Compartment vCentCompartment = setupDemoCompartment(2, "vert. center");
-        setupDemoCompartmentButton(3, button -> {
-            vCentCompartment.centerVertical(gui.getCardObjectsInCompartment(vCentCompartment));
-        });
-
-
-        Compartment hCentCompartment = setupDemoCompartment(3, "hor. center");
-        setupDemoCompartmentButton(4, button -> {
-            hCentCompartment.centerHorizontal(gui.getCardObjectsInCompartment(hCentCompartment));
-        });
-
-        // a label that will be used to show information on a dragged'n'dropped card
-        final Label label = gui.addLabel(new Coordinate(10, 880), "<none>");
-
-
-
-        // a button to explicitly terminate the demo. This closes the window.
-        gui.addButton("exit", new Coordinate(100, 850), new Size(80, 25), button -> {
-            gui.stop();
-        });
-
-        // set the handler for drag'n'drop events. With this handler:
-        // - whenever a d'n'd action finishes, the dropped card is flipped (toggle whether the front or back is shown)
-        // - information on the dropped card is shown in the dedicated label
-        // - the card is moved to the front, i.e., displayed top-most
-        gui.setCardDnDHandler((CardObject card, Coordinate mouseCoordinate, Coordinate newCoordinate) -> {
-            card.flip();
-            label.updateLabel(card.toString());
-            gui.moveToTop(card);
-            return newCoordinate;
-        });
-    }
-
-    final int anzahl_spieler = 3;
+    final int numPlayers = 3;
 	final int Y = 800;
     int felderCompartment_Y = 200;
 	final int feld_width = 100;
@@ -238,13 +219,7 @@ public class Game implements Runnable {
     final Size FELDER_SIZE = new Size(100, 200);
 
 
-    private Compartment setupDemoCompartment(int pos, String label) {
-		return gui.addCompartment(new Coordinate(WIDTH * pos, Y), new Size(WIDTH, HEIGHT), label);
-	}
 
-    private void setupDemoCompartmentButton(int pos, ButtonHandler handler) {
-        gui.addButton("arrange", new Coordinate(WIDTH * pos - BUTTON_SIZE.width, Y + V_SPACING), BUTTON_SIZE, handler);
-    }
 
     private void setupPflanzenButtons(int x, int y, int feldIndex, Compartment finalFeldCompartment, Player player) {
         gui.addButton("pflanzen", new Coordinate(x, y), BUTTON_SIZE, button -> {
@@ -342,7 +317,6 @@ public class Game implements Runnable {
     }
 
     private void setupMafiaGuiDuo(int x, int y){
-
         felderCompartments.add(gui.addCompartment(new Coordinate(x,y), new Size(150, 225), "Al Cabohne", "AL_CABOHNE"));
         felderCompartments.add(gui.addCompartment(new Coordinate(x,y + 250), new Size(150, 225), "Don Corlebohne", "DON_CORLEBOHNE"));
         tableCompartments.add(gui.addCompartment(new Coordinate(x, 550), new Size(200, 100), "Mafia Coins"));
